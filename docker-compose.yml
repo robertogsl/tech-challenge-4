@@ -1,0 +1,35 @@
+services:
+  mongo-db:
+    image: mongo
+    ports:
+      - "27017:27017"
+    container_name: mongo-db
+    volumes:
+      - ./db/:/data/db
+  mscatalogo:
+    build:
+      context: ./mscatalogo
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    container_name: api-mscatalogo
+    links:
+      - mongo-db
+  mscliente:
+    build:
+      context: ./mscliente
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    container_name: api-mscliente
+    links:
+      - mongo-db
+  mspedidos:
+    build:
+      context: ./mspedidos
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+    container_name: api-mspedidos
+    links:
+      - mongo-db
