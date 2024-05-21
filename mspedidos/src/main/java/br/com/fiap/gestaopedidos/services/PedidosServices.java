@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PedidosServices {
@@ -44,5 +45,17 @@ public class PedidosServices {
 
     public ResponseEntity<PedidoResponse> getPedidoById(String id) {
         return ResponseEntity.ok().body(new PedidoResponse(pedidoRepository.findById(id).orElseThrow()));
+    }
+
+    public ResponseEntity putAtualizarStatus(String id, String status) {
+        Pedido pedido = pedidoRepository.findById(id).orElseThrow();
+
+        pedido.setStatus(status);
+        pedidoRepository.save(pedido);
+        return ResponseEntity.ok().body(pedido);
+    }
+
+    public ResponseEntity<List<PedidoResponse>> getPedidosPagosPorCodigoCEP() {
+        return ResponseEntity.ok().body(pedidoRepository.findByStatus("pago"));
     }
 }

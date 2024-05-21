@@ -33,4 +33,14 @@ public class PedidosController {
         return pedidosServices.getPedidoById(id);
     }
 
+    @PutMapping("{id}/status/{status}")
+    public ResponseEntity atualizarStatus(@PathVariable String id, @PathVariable String status) {
+        return pedidosServices.putAtualizarStatus(id, status);
+    }
+
+    @GetMapping("pagos")
+    public ResponseEntity<List<PedidoResponse>> buscarPedidosPagosPorCodigoCEP() {
+        return pedidosServices.getPedidosPagosPorCodigoCEP();
+    }
+
 }

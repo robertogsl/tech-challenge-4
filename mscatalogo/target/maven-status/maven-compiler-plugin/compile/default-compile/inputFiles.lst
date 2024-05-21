@@ -1,0 +1,7 @@
+/Users/roberto/Dev/tech-challenge-4/mscatalogo/src/main/java/br/com/fiap/catalogoprodutos/controller/ProdutoController.java
+/Users/roberto/Dev/tech-challenge-4/mscatalogo/src/main/java/br/com/fiap/catalogoprodutos/dto/ProdutoResponse.java
+/Users/roberto/Dev/tech-challenge-4/mscatalogo/src/main/java/br/com/fiap/catalogoprodutos/model/Produto.java
+/Users/roberto/Dev/tech-challenge-4/mscatalogo/src/main/java/br/com/fiap/catalogoprodutos/dto/ProdutoRequest.java
+/Users/roberto/Dev/tech-challenge-4/mscatalogo/src/main/java/br/com/fiap/catalogoprodutos/CatalogoProdutosApplication.java
+/Users/roberto/Dev/tech-challenge-4/mscatalogo/src/main/java/br/com/fiap/catalogoprodutos/repository/ProdutoRepository.java
+/Users/roberto/Dev/tech-challenge-4/mscatalogo/src/main/java/br/com/fiap/catalogoprodutos/services/ProdutoService.java

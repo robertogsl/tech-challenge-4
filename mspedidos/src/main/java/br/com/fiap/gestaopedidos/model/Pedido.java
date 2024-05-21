@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Setter
 public class Pedido {
 
     @Id
@@ -22,6 +24,8 @@ public class Pedido {
     private String idCliente;
 
     private List<Itens> itens;
+
+    private String status = "aguardando_pagamento";
 
     public Pedido(String idCliente, List<Itens> itens){
         this.idCliente = idCliente;

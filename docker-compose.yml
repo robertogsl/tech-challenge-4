@@ -6,6 +6,9 @@ services:
     container_name: mongo-db
     volumes:
       - ./db/:/data/db
+    networks:
+      - my_network
+
   mscatalogo:
     build:
       context: ./mscatalogo
@@ -15,6 +18,9 @@ services:
     container_name: api-mscatalogo
     links:
       - mongo-db
+    networks:
+      - my_network
+    
   mscliente:
     build:
       context: ./mscliente
@@ -24,6 +30,9 @@ services:
     container_name: api-mscliente
     links:
       - mongo-db
+    networks:
+      - my_network
+
   mspedidos:
     build:
       context: ./mspedidos
@@ -33,3 +42,20 @@ services:
     container_name: api-mspedidos
     links:
       - mongo-db
+    networks:
+      - my_network
+
+  mslogistica:
+    build: 
+      context: ./mslogistica
+      dockerfile: Dockerfile
+    ports:
+      - "8083:8083"
+    container_name: api-mslogistica
+    links:
+      - mongo-db
+    networks:
+      - my_network
+
+networks:
+  my_network:
