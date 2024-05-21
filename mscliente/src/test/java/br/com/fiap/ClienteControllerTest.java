@@ -37,7 +37,7 @@ class ClienteControllerTest {
         ClienteDto clienteDto = new ClienteDto("cpf", "email", "1234", "teste", "12324", 12, "casa 1", 5);
         ResponseEntity<ClienteDto> responseEntity = ResponseEntity.ok(clienteDto);
         given(clienteService.salvar(any(ClienteDto.class))).willReturn(responseEntity);
-        mockMvc.perform(post("/api/v1/cliente")
+        mockMvc.perform(post("/api/cliente")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(mapper.writeValueAsString(clienteDto)))
                 .andExpect(status().isOk());
@@ -48,7 +48,7 @@ class ClienteControllerTest {
         ClienteDto clienteDto = new ClienteDto("cpf", "email", "1234", "teste", "12324", 12, "casa 1", 5);
         ResponseEntity<Cliente> responseEntity = ResponseEntity.ok(clienteDto.toModel());
         given(clienteService.buscar(anyString())).willReturn(responseEntity);
-        mockMvc.perform(get("/api/v1/cliente/123333")
+        mockMvc.perform(get("/api/cliente/123333")
                         .contentType(MediaType.APPLICATION_JSON)
                         )
                 .andExpect(status().isOk());
@@ -59,7 +59,7 @@ class ClienteControllerTest {
         ClienteDto clienteDto = new ClienteDto("cpf", "email", "1234", "teste", "12324", 12, "casa 1", 5);
         ResponseEntity<Cliente> responseEntity = ResponseEntity.ok(clienteDto.toModel());
         given(clienteService.atualizar(anyString(),any(Cliente.class))).willReturn(responseEntity);
-        mockMvc.perform(put("/api/v1/cliente")
+        mockMvc.perform(put("/api/cliente")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(mapper.writeValueAsString(clienteDto)))
                 .andExpect(status().isOk());
@@ -69,7 +69,7 @@ class ClienteControllerTest {
     void deletarCliente() throws Exception {
         ResponseEntity<Cliente> responseEntity = ResponseEntity.ok().build();
         given(clienteService.deletar(anyString())).willReturn(responseEntity);
-        mockMvc.perform(delete("/api/v1/cliente/123333")
+        mockMvc.perform(delete("/api/cliente/123333")
                         .contentType(MediaType.APPLICATION_JSON)
                 )
                 .andExpect(status().isOk());
