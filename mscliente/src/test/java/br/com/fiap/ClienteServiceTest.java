@@ -52,7 +52,7 @@ class ClienteServiceTest {
     void atualizarCliente(){
         ClienteDto clienteDto = new ClienteDto("cpf", "email", "1234", "teste", "12324", 12, "casa 1", 5);
         when(clienteRepository.save(clienteDto.toModel())).thenReturn(clienteDto.toModel());
-        ResponseEntity<Cliente> responseEntity = clienteService.atualizar("1234", clienteDto.toModel());
+        ResponseEntity<Cliente> responseEntity = clienteService.atualizar("cpf", clienteDto.toModel());
         assertEquals("cpf",responseEntity.getBody().getCpf());
     }
 
